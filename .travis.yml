@@ -1,0 +1,27 @@
+language: node_js
+node_js: stable
+sudo: required
+services:
+- docker
+cache:
+  yarn: true
+  directories:
+  - node_modules
+before_install:
+- curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.9.2
+- export PATH="$HOME/.yarn/bin:$PATH"
+script: travis_wait node scripts/dockerUtil build
+before_deploy:
+- echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: node scripts/dockerUtil publish
+  on:
+    all_branches: true
+env:
+  global:
+    secure: JtuG8ab/ZFMfk+nGn8772ivJTLlUVMB4eEaI+IYr9Xex1u7tgN6f9c2EaF0e4tsEfCu9W10LQP6NBPp/trlbygfIrSf/lyXE2ZX7ZZOuO8tRuDJORDD10PyPalLyyuHDdF56SaaCAvcNib4O8khCpXZHDMzi1LbVLUFaBfAOEDISbhuQISNZU+i9USvLzXDbspfOIoLP0g1UMRs4pTULtihvMUxkoSlOG1o+54f2TahKRiDjR7nGcv9BXlcInf3oopQSsJrfwNpQ+KpEF/4/EIqcs7qV7tcqNecFAn3jbXobUXVx8UsbWPKxUQq4uTiiN6wUD4cPArqGuJ4RT5oMtt8qElxTQSf4Frr0W6vPf6G3QyfQAzBtN72rQJmza4ebzIRJrPqcDLftbvklK49mcwYwelNg254Gr2M9uwKVKNOhyLKdYuDFKn9+YcdbeCy1L1vIWKDWALoN31KC4hRNnoWeuqyeRPPYVBMPtRbF2ZFDgKIKZM4Nlgbnm0uoA57HxLUTlZbfuUFZG8IANKRvGx8RMrSRW/AKL0pXOmJD6vsKY4er0QTq/PYzwi1RUcB6nIm8nZ7ijsEdY5Nn9a0d06VPUGbvpiMoC3EUpnjHIFiBAXHhVSAMZcA0nQbn+4IiAlYJ4K3NGxW86SR/UnLicZWoepcIIuAM4sUYjLHqX3o=
+notifications:
+  slack:
+    secure: q1b0EM0cbGKz5woiLhjq7NzIRkKX175E7a5bRcVj67FSppNJ4H0PVOazFtJ8BoxxFY2GG2BX9mR1eIRHUDDwHxP+KeBSHXTOmsoi7nRjdeKFCBslnrwRCkfKpmG23t7HVUYwlzUc5fDULbV58gaxjuKvM8HF73qOjKse7RL+braBRj4G03bNl37/QxdVYQzZstemBLk/pbOAXgVqZ3KTWJ7mxLt/wRXhYUkqq4eltVFlxL4Xng4qGPZFsxe8u7LpF9Q4BZGzIpfdN/jZPS0kPZHl+Ir0HLO6S2FwzSmI1fhzwTT2U6bLdnnmqifLun2a+fYWzzwbwF5m1zQwen+P5+et7M6D4KWO6KrBWeF/d044Lot52VlWZcmtilLHq71M8KyY7RYR2jCojX/u5X4DVsLukbnzAmJeqbNESe67RAq7KDfgynpk8nIouP5Lg7ZcLYe6Re4d5rafxbnJcYM2XR3wCZTXYJvrtOf9EXL2fxukh0lppV4EusARwyhI+EsXVhwQBPPcannp98tgthxu5+odBcbJzRDNI2NE5CzQ3aqoaRkYFXe9qVVcUDiAz7Re0J4GQXmf/N4T/foNDsHTKq/TToEuiIPGG6RxpeuL9t4iMLtVfe8rYqeaY0FdWovyETpyHpRH3OEHFSDXu2sJOAZgZaje6Hqdb7xh+9rz2rw=
