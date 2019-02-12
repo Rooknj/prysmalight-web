@@ -32,12 +32,12 @@ if (process.env.REACT_APP_ENV === "dev") {
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: "http://" + serverName + ":4001/graphql"
+  uri: "http://" + serverName + "/graphql"
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: "ws://" + serverName + ":4001/graphql",
+  uri: "ws://" + serverName + "/graphql",
   options: {
     reconnect: true
   }
