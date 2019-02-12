@@ -25,10 +25,11 @@ let serverName;
 if (process.env.REACT_APP_ENV === "dev") {
   serverName = "prysma.local";
 } else if (process.env.REACT_APP_ENV === "dev-local") {
-  serverName = "localhost";
+  serverName = "localhost:3000";
 } else {
   serverName = window.location.hostname;
 }
+console.log(process.env);
 
 // Create an http link:
 const httpLink = new HttpLink({
