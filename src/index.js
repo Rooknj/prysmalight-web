@@ -29,16 +29,16 @@ if (process.env.REACT_APP_ENV === "dev") {
 } else {
   serverName = window.location.hostname;
 }
-console.log(process.env);
+let ws_protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: "http://" + serverName + "/graphql"
+  uri: window.location.protocol + "//" + serverName + "/graphql"
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: "ws://" + serverName + "/graphql",
+  uri: ws_protocol + "//" + serverName + "/graphql",
   options: {
     reconnect: true
   }
