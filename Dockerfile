@@ -8,16 +8,14 @@ WORKDIR /usr/app
 # Add app
 COPY . .
 
-# Install Yarn
-RUN npm install -g yarn
-
 # Install app dependencies
-RUN yarn install --silent
+RUN npm install --silent
+
 # Test app
-RUN yarn test --no-watch
+RUN npm run test -- --no-watch
 
 # Build app
-RUN yarn build
+RUN npm run build
 
 # production environment
 FROM arm32v7/nginx:stable
