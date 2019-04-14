@@ -10,7 +10,6 @@ Array [
     <div
       aria-describedby="message-id"
       className="MuiTypography-root-38 MuiTypography-body1-47 MuiPaper-root-11 MuiPaper-elevation6-19 MuiSnackbarContent-root-8"
-      direction="up"
       role="alertdialog"
       style={Object {}}
     >
@@ -32,10 +31,11 @@ Array [
       >
         <button
           aria-label="Close"
-          className="MuiButtonBase-root-79 MuiIconButton-root-73 MuiIconButton-colorInherit-74 sc-bdVaJa dKqnEJ"
+          className="MuiButtonBase-root-80 MuiIconButton-root-74 MuiIconButton-colorInherit-75 sc-bdVaJa dKqnEJ"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
@@ -49,11 +49,11 @@ Array [
           type="button"
         >
           <span
-            className="MuiIconButton-label-78"
+            className="MuiIconButton-label-79"
           >
             <svg
               aria-hidden="true"
-              className="MuiSvgIcon-root-82"
+              className="MuiSvgIcon-root-83"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
@@ -68,7 +68,7 @@ Array [
             </svg>
           </span>
           <span
-            className="MuiTouchRipple-root-91"
+            className="MuiTouchRipple-root-92"
           />
         </button>
       </div>
