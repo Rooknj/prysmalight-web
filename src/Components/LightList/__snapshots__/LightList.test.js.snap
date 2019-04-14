@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches mounted snapshot 1`] = `
-<div
-  className="sc-bdVaJa gSvyBK"
->
+<styled.div>
   <div
-    className="MuiGrid-container-1 MuiGrid-justify-xs-center-18"
-  />
-</div>
+    className="sc-bdVaJa gSvyBK"
+  >
+    <div
+      className="MuiGrid-container-1 MuiGrid-justify-xs-center-18"
+    />
+  </div>
+</styled.div>
 `;
 
 exports[`matches shallow snapshot 1`] = `
