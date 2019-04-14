@@ -11,66 +11,76 @@ Array [
     <header
       className="MuiPaper-root-10 MuiPaper-elevation4-16 MuiAppBar-root-1 MuiAppBar-positionSticky-4 MuiAppBar-colorPrimary-8"
     >
-      <div
-        className="MuiToolbar-root-37 MuiToolbar-regular-39 MuiToolbar-gutters-38 sc-bdVaJa dsgXoZ"
-      >
+      <Styled(WithStyles(Toolbar))>
         <div
-          className="sc-bwzfXH fNOhzS"
+          className="MuiToolbar-root-37 MuiToolbar-regular-39 MuiToolbar-gutters-38 sc-bdVaJa dsgXoZ"
         >
-          <button
-            aria-label="Menu"
-            className="MuiButtonBase-root-47 MuiIconButton-root-41 MuiIconButton-colorInherit-42 sc-htpNat hNAYgr"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onContextMenu={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="MuiIconButton-label-46"
+          <styled.div>
+            <div
+              className="sc-bwzfXH fNOhzS"
             >
-              <svg
-                aria-hidden="true"
-                className="MuiSvgIcon-root-50"
-                focusable="false"
-                role="presentation"
-                viewBox="0 0 24 24"
+              <Styled(WithStyles(IconButton))
+                aria-label="Menu"
+                color="inherit"
+                onClick={[Function]}
               >
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-                <path
-                  d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                />
-              </svg>
-            </span>
-            <span
-              className="MuiTouchRipple-root-95"
-            />
-          </button>
-          <h6
-            className="MuiTypography-root-59 MuiTypography-h6-76 MuiTypography-colorInherit-88"
+                <button
+                  aria-label="Menu"
+                  className="MuiButtonBase-root-47 MuiIconButton-root-41 MuiIconButton-colorInherit-42 sc-htpNat hNAYgr"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex="0"
+                  type="button"
+                >
+                  <span
+                    className="MuiIconButton-label-46"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="MuiSvgIcon-root-50"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                        fill="none"
+                      />
+                      <path
+                        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    className="MuiTouchRipple-root-95"
+                  />
+                </button>
+              </Styled(WithStyles(IconButton))>
+              <h6
+                className="MuiTypography-root-59 MuiTypography-h6-76 MuiTypography-colorInherit-88"
+              >
+                Prysmalight
+              </h6>
+            </div>
+          </styled.div>
+          <div
+            id="LightActionsContainer"
           >
-            Prysmalight
-          </h6>
+            Mocked Light Actions Container
+          </div>
         </div>
-        <div
-          id="LightActionsContainer"
-        >
-          Mocked Light Actions Container
-        </div>
-      </div>
+      </Styled(WithStyles(Toolbar))>
     </header>,
   ],
   <div

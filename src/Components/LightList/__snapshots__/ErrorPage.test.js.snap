@@ -62,42 +62,50 @@ Array [
       </g>
     </svg>
   </div>,
-  <div
-    className="sc-bdVaJa kjiXEw"
-  >
-    <h4
-      className="MuiTypography-root-1 MuiTypography-h4-16"
+  <styled.div>
+    <div
+      className="sc-bdVaJa kjiXEw"
     >
-      Oops something went wrong!
-    </h4>
-  </div>,
-  <button
-    className="MuiButtonBase-root-63 MuiButton-root-37 MuiButton-contained-48 MuiButton-containedSecondary-50 MuiButton-raised-51 MuiButton-raisedSecondary-53 sc-bwzfXH iEeMEf"
-    disabled={false}
-    onBlur={[Function]}
+      <h4
+        className="MuiTypography-root-1 MuiTypography-h4-16"
+      >
+        Oops something went wrong!
+      </h4>
+    </div>
+  </styled.div>,
+  <Styled(WithStyles(Button))
+    color="secondary"
     onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    tabIndex="0"
-    type="button"
+    variant="contained"
   >
-    <span
-      className="MuiButton-label-38"
+    <button
+      className="MuiButtonBase-root-63 MuiButton-root-37 MuiButton-contained-48 MuiButton-containedSecondary-50 MuiButton-raised-51 MuiButton-raisedSecondary-53 sc-bwzfXH iEeMEf"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
     >
-      Refresh
-    </span>
-    <span
-      className="MuiTouchRipple-root-66"
-    />
-  </button>,
+      <span
+        className="MuiButton-label-38"
+      >
+        Refresh
+      </span>
+      <span
+        className="MuiTouchRipple-root-66"
+      />
+    </button>
+  </Styled(WithStyles(Button))>,
 ]
 `;
 

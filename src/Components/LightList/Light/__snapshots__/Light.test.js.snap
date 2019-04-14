@@ -3,113 +3,119 @@
 exports[`matches mounted snapshot 1`] = `
 Array [
   "",
-  <div
-    className="sc-kgoBCf hBThxx"
-  >
+  <styled.div>
     <div
-      className="MuiPaper-root-18 MuiPaper-elevation1-21 MuiPaper-rounded-19 MuiCard-root-17"
-      onClick={[Function]}
+      className="sc-kgoBCf hBThxx"
     >
       <div
-        className="MuiGrid-container-45 MuiGrid-align-items-xs-center-53"
+        className="MuiPaper-root-18 MuiPaper-elevation1-21 MuiPaper-rounded-19 MuiCard-root-17"
+        onClick={[Function]}
       >
         <div
-          className="MuiGrid-item-46 MuiGrid-grid-xs-7-80"
+          className="MuiGrid-container-45 MuiGrid-align-items-xs-center-53"
         >
           <div
-            className="MuiCardHeader-root-142"
+            className="MuiGrid-item-46 MuiGrid-grid-xs-7-80"
           >
             <div
-              className="MuiCardHeader-avatar-143"
+              className="MuiCardHeader-root-142"
             >
               <div
-                aria-label="Light"
-                className="MuiAvatar-root-148 MuiAvatar-colorDefault-149 sc-bdVaJa krrbta"
+                className="MuiCardHeader-avatar-143"
               >
-                <svg
-                  aria-hidden="true"
-                  className="MuiSvgIcon-root-151"
-                  color="rgb(0,0,0)"
-                  focusable="false"
-                  role="presentation"
-                  viewBox="0 0 24 24"
+                <Styled(WithStyles(Avatar))
+                  aria-label="Light"
                 >
-                  <path
-                    d="M12,2C8.13,2 5,5.13 5,9C5,11.38 6.19,13.47 8,14.74V17C8,17.55 8.45,18 9,18H15C15.55,18 16,17.55 16,17V14.74C17.81,13.47 19,11.38 19,9C19,5.13 15.87,2 12,2M9,21C9,21.55 9.45,22 10,22H14C14.55,22 15,21.55 15,21V20H9V21Z"
-                  />
-                </svg>
+                  <div
+                    aria-label="Light"
+                    className="MuiAvatar-root-148 MuiAvatar-colorDefault-149 sc-bdVaJa krrbta"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="MuiSvgIcon-root-151"
+                      color="rgb(0,0,0)"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12,2C8.13,2 5,5.13 5,9C5,11.38 6.19,13.47 8,14.74V17C8,17.55 8.45,18 9,18H15C15.55,18 16,17.55 16,17V14.74C17.81,13.47 19,11.38 19,9C19,5.13 15.87,2 12,2M9,21C9,21.55 9.45,22 10,22H14C14.55,22 15,21.55 15,21V20H9V21Z"
+                      />
+                    </svg>
+                  </div>
+                </Styled(WithStyles(Avatar))>
+              </div>
+              <div
+                className="MuiCardHeader-content-145"
+              >
+                <span
+                  className="MuiTypography-root-160 MuiTypography-body2-168 MuiCardHeader-title-146"
+                />
+                <span
+                  className="MuiTypography-root-160 MuiTypography-body2-168 MuiTypography-colorTextSecondary-193 MuiCardHeader-subheader-147"
+                >
+                  Disonnected
+                </span>
               </div>
             </div>
-            <div
-              className="MuiCardHeader-content-145"
-            >
-              <span
-                className="MuiTypography-root-160 MuiTypography-body2-168 MuiCardHeader-title-146"
-              />
-              <span
-                className="MuiTypography-root-160 MuiTypography-body2-168 MuiTypography-colorTextSecondary-193 MuiCardHeader-subheader-147"
-              >
-                Disonnected
-              </span>
-            </div>
           </div>
-        </div>
-        <div
-          className="MuiGrid-item-46 MuiGrid-grid-xs-5-78"
-        >
           <div
-            className="MuiGrid-container-45 MuiGrid-justify-xs-flex-end-63"
+            className="MuiGrid-item-46 MuiGrid-grid-xs-5-78"
           >
             <div
-              className="MuiGrid-item-46"
-            />
-            <div
-              className="MuiGrid-item-46"
+              className="MuiGrid-container-45 MuiGrid-justify-xs-flex-end-63"
             >
-              <span
-                className="MuiSwitch-root-196"
+              <div
+                className="MuiGrid-item-46"
+              />
+              <div
+                className="MuiGrid-item-46"
               >
                 <span
-                  className="MuiButtonBase-root-215 MuiButtonBase-disabled-216 MuiIconButton-root-209 MuiIconButton-disabled-213 MuiPrivateSwitchBase-root-205 MuiSwitch-switchBase-199 MuiSwitch-colorPrimary-201 MuiPrivateSwitchBase-disabled-207 MuiSwitch-disabled-203"
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onContextMenu={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchEnd={[Function]}
-                  onTouchMove={[Function]}
-                  onTouchStart={[Function]}
-                  tabIndex="-1"
+                  className="MuiSwitch-root-196"
                 >
                   <span
-                    className="MuiIconButton-label-214"
+                    className="MuiButtonBase-root-215 MuiButtonBase-disabled-216 MuiIconButton-root-209 MuiIconButton-disabled-213 MuiPrivateSwitchBase-root-205 MuiSwitch-switchBase-199 MuiSwitch-colorPrimary-201 MuiPrivateSwitchBase-disabled-207 MuiSwitch-disabled-203"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onContextMenu={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="-1"
                   >
                     <span
-                      className="MuiSwitch-icon-197"
-                    />
-                    <input
-                      checked={false}
-                      className="MuiPrivateSwitchBase-input-208"
-                      disabled={true}
-                      onChange={[Function]}
-                      type="checkbox"
-                    />
+                      className="MuiIconButton-label-214"
+                    >
+                      <span
+                        className="MuiSwitch-icon-197"
+                      />
+                      <input
+                        checked={false}
+                        className="MuiPrivateSwitchBase-input-208"
+                        disabled={true}
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                    </span>
                   </span>
+                  <span
+                    className="MuiSwitch-bar-204"
+                  />
                 </span>
-                <span
-                  className="MuiSwitch-bar-204"
-                />
-              </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>,
+  </styled.div>,
 ]
 `;
 
