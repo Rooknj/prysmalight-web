@@ -28,10 +28,8 @@ class ColorControls extends React.Component {
   componentDidMount() {
     this.colorWheel = new iro.ColorPicker(this.myRef.current, {
       color: this.props.hex,
-      display: "flex",
-      anticlockwise: true,
-      height: this.props.height|| 320,
-      width: this.props.width || 320 
+      height: this.props.height || 320,
+      width: this.props.width || 320
     });
     this.colorWheel.on("color:change", this.onIroChange);
   }
