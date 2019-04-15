@@ -2,7 +2,11 @@ import React from "react";
 import LightActions from "./LightActions";
 import LightFormDialog from "./LightFormDialog";
 import { Mutation } from "react-apollo";
-import { ADD_LIGHT, REMOVE_LIGHT, GET_LIGHTS } from "../../graphqlConstants";
+import {
+  ADD_LIGHT,
+  REMOVE_LIGHT,
+  GET_LIGHTS
+} from "common/graphqlConstants.js";
 
 const addLightToCache = (cache, { data: { addLight } }) => {
   // If no data was returned, do nothing

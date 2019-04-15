@@ -1,7 +1,7 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import { Query } from "react-apollo";
-import { GET_LIGHTS } from "../graphqlConstants";
+import { GET_LIGHTS } from "common/graphqlConstants.js";
 import LightListSubscriptionContainer from "./LightListSubscriptionContainer";
 import ErrorPage from "./ErrorPage";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -25,7 +25,11 @@ export const Loading = () => (
 );
 
 const LightListQueryContainer = () => (
-  <Query query={GET_LIGHTS} fetchPolicy="cache-and-network" notifyOnNetworkStatusChange>
+  <Query
+    query={GET_LIGHTS}
+    fetchPolicy="cache-and-network"
+    notifyOnNetworkStatusChange
+  >
     {({ loading, error, data, subscribeToMore, refetch, networkStatus }) => {
       if (loading || networkStatus === 4) return <Loading />;
       if (error) return <ErrorPage message={error.message} refetch={refetch} />;
