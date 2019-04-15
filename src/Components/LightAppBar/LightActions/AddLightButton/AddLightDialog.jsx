@@ -35,10 +35,10 @@ const AddLightDialog = props => {
           fetchPolicy="network-only"
           pollInterval={3000}
         >
-          {({ loading, error, data, startPolling, stopPolling }) => {
+          {({ loading, error, data }) => {
             return (
               <DiscoveredLightsList
-                lights={data.discoveredLights}
+                lights={data ? data.discoveredLights : []}
                 onListItemClick={handleListItemClick}
               />
             );
