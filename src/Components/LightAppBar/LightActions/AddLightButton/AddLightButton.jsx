@@ -4,19 +4,17 @@ import IconButton from "@material-ui/core/IconButton";
 import AddIcon from "@material-ui/icons/Add";
 import AddLightDialog from "./AddLightDialog";
 
-const emails = ["username@gmail.com", "user02@gmail.com"];
+const AddLightButton = props => {
+  const { onAddLight, ...other } = props;
 
-const AddLightButton = () => {
   const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
   function handleClickOpen() {
     setOpen(true);
   }
 
-  const handleClose = value => {
+  const handleClose = () => {
     setOpen(false);
-    setSelectedValue(value);
   };
 
   return (
@@ -25,9 +23,9 @@ const AddLightButton = () => {
         <AddIcon />
       </IconButton>
       <AddLightDialog
-        selectedValue={selectedValue}
         open={open}
         onClose={handleClose}
+        onAddLight={onAddLight}
       />
     </React.Fragment>
   );

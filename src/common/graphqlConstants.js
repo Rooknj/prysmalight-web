@@ -73,3 +73,19 @@ export const REMOVE_LIGHT = gql`
     removeLight(lightId: $lightId)
   }
 `;
+
+export const GET_DISCOVERED_LIGHTS = gql`
+  query getDiscoveredLights {
+    discoveredLights {
+      id
+      ipAddress
+      macAddress
+      numLeds
+      udpPort
+      version
+      hardware
+      colorOrder
+      stripType
+    }
+  }
+`;

@@ -1,3 +1,3 @@
-import AddLightButton from "./AddLightButton";
+import AddLightContainer from "./AddLightContainer";
 
-export default AddLightButton;
+export default AddLightContainer;

@@ -1,21 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Query } from "react-apollo";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import DiscoveredLightsList from "./DiscoveredLightsList";
+import { GET_DISCOVERED_LIGHTS } from "common/graphqlConstants";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-const emails = ["username@gmail.com", "user02@gmail.com"];
+const AddLightDialog = props => {
+  const { onClose, onAddLight, ...other } = props;
 
-function SimpleDialog(props) {
-  const { onClose, selectedValue, ...other } = props;
+  const handleClose = () => {
+    onClose();
+  };
 
-  function handleClose() {
-    onClose(selectedValue);
-  }
-
-  function handleListItemClick(value) {
-    onClose(value);
-  }
+  const handleListItemClick = value => {
+    console.log(value);
+    onAddLight(value);
+    onClose();
+  };
 
   return (
     <Dialog
@@ -23,20 +26,32 @@ function SimpleDialog(props) {
       aria-labelledby="simple-dialog-title"
       {...other}
     >
-      <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+      <DialogTitle id="simple-dialog-title">Add a Light</DialogTitle>
+      <div>searching</div>
+      <CircularProgress />
       <div>
-        <DiscoveredLightsList
-          lights={emails}
-          onListItemClick={handleListItemClick}
-        />
+        <Query
+          query={GET_DISCOVERED_LIGHTS}
+          fetchPolicy="network-only"
+          pollInterval={3000}
+        >
+          {({ loading, error, data, startPolling, stopPolling }) => {
+            return (
+              <DiscoveredLightsList
+                lights={data.discoveredLights}
+                onListItemClick={handleListItemClick}
+              />
+            );
+          }}
+        </Query>
+        <div>Not Seeing Your Light?</div>
       </div>
     </Dialog>
   );
-}
-
-SimpleDialog.propTypes = {
-  onClose: PropTypes.func,
-  selectedValue: PropTypes.string
 };
 
-export default SimpleDialog;
+AddLightDialog.propTypes = {
+  onClose: PropTypes.func
+};
+
+export default AddLightDialog;
