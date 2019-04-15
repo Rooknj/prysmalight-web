@@ -60,8 +60,8 @@ export const SET_LIGHT = gql`
 `;
 
 export const ADD_LIGHT = gql`
-  mutation addLight($lightId: String!) {
-    addLight(lightId: $lightId) {
+  mutation addLight($lightId: String!, $lightName: String) {
+    addLight(lightId: $lightId, lightName: $lightName) {
       ...lightFields
     }
   }

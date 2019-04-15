@@ -37,7 +37,8 @@ const AddLightContainer = props => {
             console.log(lightId, lightName);
             addLight({
               variables: {
-                lightId: lightId
+                lightId,
+                lightName
               }
             });
           }}
