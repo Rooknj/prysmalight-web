@@ -19,12 +19,22 @@ const ProgressContainer = styled.div`
   padding-left: 8px;
 `;
 
+const PaddedTypography = styled(Typography)`
+  padding-left: 24px;
+  padding-right: 24px;
+`;
+
 const DiscoveredLightsView = props => {
-  const { onAddLight, ...other } = props;
+  const { onAddLight, addLightError, ...other } = props;
 
   return (
     <React.Fragment>
       <div>
+        {addLightError && (
+          <PaddedTypography variant="body2" color="error">
+            *Error adding Light
+          </PaddedTypography>
+        )}
         <SearchingContainer>
           <Typography variant="body2" color="textSecondary">
             Searching...

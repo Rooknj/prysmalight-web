@@ -5,17 +5,20 @@ import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
+import { Typography } from "@material-ui/core";
 
 const ManualView = props => {
-  const { onAddLight, onBack, addLightLoading } = props;
+  const { onAddLight, onBack, addLightLoading, addLightError } = props;
 
   const [lightId, setLightId] = React.useState("");
+  const [oldId, setOldId] = React.useState("");
 
   const handleChange = e => {
     setLightId(e.target.value);
   };
 
   const handleSubmit = () => {
+    setOldId(lightId);
     onAddLight(lightId);
   };
 
@@ -29,14 +32,19 @@ const ManualView = props => {
   return (
     <React.Fragment>
       <DialogContent>
+        {addLightError && (
+          <Typography variant="body2" color="error">
+            *Error adding {oldId}
+          </Typography>
+        )}
         <DialogContentText>
-          Enter the name of the light you want to add
+          Enter the unique id of the light you want to add
         </DialogContentText>
         <TextField
           autoFocus
           margin="dense"
           id="lightName"
-          label="Light Name"
+          label="Light Id"
           type="text"
           fullWidth
           value={lightId}

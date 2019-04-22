@@ -41,18 +41,21 @@ const addLightToCache = (cache, { data: { addLight } }) => {
 };
 
 const AddLightContainer = props => {
-  const handleMutationError = error => {
-    console.error(error);
-  };
-
   const [open, setOpen] = React.useState(false);
   const [view, setView] = React.useState(0);
+  const [addLightError, setAddLightError] = React.useState(null);
+
+  const handleMutationError = error => {
+    setAddLightError(error);
+  };
 
   const handleSetManualView = () => {
+    setAddLightError(null);
     setView(1);
   };
 
   const handleSetDiscoverView = () => {
+    setAddLightError(null);
     setView(0);
   };
 
@@ -71,10 +74,10 @@ const AddLightContainer = props => {
       onError={handleMutationError}
       onCompleted={handleClose}
     >
-      {(addLight, { loading, error }) => (
+      {(addLight, { loading }) => (
         <AddLightButton
           addLightLoading={loading}
-          addLightError={error}
+          addLightError={addLightError}
           modalOpen={open}
           onOpenModal={handleOpen}
           onCloseModal={handleClose}
