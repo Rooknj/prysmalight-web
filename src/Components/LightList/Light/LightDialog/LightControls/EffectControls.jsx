@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
-import Slider from "../../SmoothSlider";
+import Slider from "common/components/SmoothSlider";
 import TurtleIcon from "mdi-material-ui/Turtle";
 import RabbitIcon from "mdi-material-ui/Rabbit";
 
@@ -21,7 +21,7 @@ const SpeedSection = styled.div`
 `; // The overflow-x is to fix this bug https://github.com/mui-org/material-ui/issues/13455
 
 const MarginContainer = styled.div`
-  margin: 2em 1em 0em 1em
+  margin: 2em 1em 0em 1em;
 `; // The overflow-x is to fix this bug https://github.com/mui-org/material-ui/issues/13455
 
 const FastIcon = styled(RabbitIcon)`

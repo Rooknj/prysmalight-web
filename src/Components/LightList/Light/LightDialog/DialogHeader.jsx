@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/ArrowBack";
 import Switch from "@material-ui/core/Switch";
-import Slider from "../SmoothSlider";
+import Slider from "common/components/SmoothSlider";
 
 import styled from "styled-components";
 
