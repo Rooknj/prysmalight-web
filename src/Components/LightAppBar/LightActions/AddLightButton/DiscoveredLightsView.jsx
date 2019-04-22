@@ -45,7 +45,7 @@ const DiscoveredLightsView = props => {
         </SearchingContainer>
         <Query
           query={GET_DISCOVERED_LIGHTS}
-          fetchPolicy="cache-and-netword"
+          fetchPolicy="cache-and-network"
           pollInterval={3000}
         >
           {({ data }) => (

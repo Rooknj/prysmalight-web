@@ -9,7 +9,14 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CloseIcon from "@material-ui/icons/Close";
 
 const OptionsDrawer = props => {
-  const { onClose, onRename, onRemove, light, ...other } = props;
+  const {
+    onClose,
+    onRename,
+    onRemove,
+    light,
+    removeLightLoading,
+    ...other
+  } = props;
 
   return (
     <SwipeableDrawer anchor="bottom" onClose={onClose} {...other}>
