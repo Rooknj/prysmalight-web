@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import LightControls from "./LightControls";
 import LightHeader from "./DialogHeader";
 import ZoomDialog from "common/components/ZoomDialog";
+import OptionsDrawer from "./OptionsDrawer";
 
 const propTypes = {
   light: PropTypes.shape({
@@ -51,6 +52,11 @@ const LightDialog = props => {
     containerRef
   } = props;
 
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+
+  const handleOpenDrawer = () => setDrawerOpen(true);
+  const handleCloseDrawer = () => setDrawerOpen(false);
+
   return (
     <ZoomDialog
       fullScreen
@@ -63,8 +69,14 @@ const LightDialog = props => {
         onClose={onClose}
         onStateChange={onStateChange}
         onBrightnessChange={onBrightnessChange}
+        onMore={handleOpenDrawer}
       />
       <LightControls {...props} />
+      <OptionsDrawer
+        open={drawerOpen}
+        onOpen={handleOpenDrawer}
+        onClose={handleCloseDrawer}
+      />
     </ZoomDialog>
   );
 };

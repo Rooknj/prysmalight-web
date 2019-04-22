@@ -76,7 +76,13 @@ const defaultProps = {
 
 class LightHeader extends React.Component {
   render() {
-    const { onClose, light, onStateChange, onBrightnessChange } = this.props;
+    const {
+      onClose,
+      light,
+      onStateChange,
+      onBrightnessChange,
+      onMore
+    } = this.props;
     return (
       <AppBar position="relative" color="secondary">
         <StyledToolbar variant={"regular"}>
@@ -93,7 +99,7 @@ class LightHeader extends React.Component {
             </Typography>
           </LeftSide>
           <RightSide>
-            <IconButton color="inherit" onClick={() => console.log("More")}>
+            <IconButton color="inherit" onClick={onMore}>
               <MoreIcon />
             </IconButton>
             <Switch
