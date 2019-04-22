@@ -44,6 +44,7 @@ const AddLightContainer = props => {
   const [open, setOpen] = React.useState(false);
   const [view, setView] = React.useState(0);
   const [addLightError, setAddLightError] = React.useState(null);
+  const [lightAdded, setLightAdded] = React.useState("");
 
   const handleMutationError = error => {
     setAddLightError(error);
@@ -59,12 +60,18 @@ const AddLightContainer = props => {
     setView(0);
   };
 
-  const handleOpen = () => {
+  const handleClick = () => {
     setOpen(true);
+    setLightAdded("");
   };
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleMutationSuccess = data => {
+    setLightAdded(data.addLight.id);
+    handleClose();
   };
 
   return (
@@ -72,18 +79,19 @@ const AddLightContainer = props => {
       mutation={ADD_LIGHT}
       update={addLightToCache}
       onError={handleMutationError}
-      onCompleted={handleClose}
+      onCompleted={handleMutationSuccess}
     >
       {(addLight, { loading }) => (
         <AddLightButton
           addLightLoading={loading}
           addLightError={addLightError}
           modalOpen={open}
-          onOpenModal={handleOpen}
+          onClick={handleClick}
           onCloseModal={handleClose}
           view={view}
           onSetManualView={handleSetManualView}
           onSetDiscoverView={handleSetDiscoverView}
+          lightAdded={lightAdded}
           onAddLight={(lightId, lightName = "") =>
             addLight({
               variables: {
