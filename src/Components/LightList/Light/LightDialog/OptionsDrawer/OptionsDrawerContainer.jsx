@@ -26,11 +26,11 @@ const removeLightFromCache = (cache, { data: { removeLight } }) => {
 const OptionsDrawerContainer = props => {
   const { light } = props;
 
-  const handleMutationComplete = data => {
+  const handleRemoveComplete = data => {
     console.log(data);
   };
 
-  const handleMutationError = error => {
+  const handleRemoveError = error => {
     console.log(error);
   };
 
@@ -38,12 +38,13 @@ const OptionsDrawerContainer = props => {
     <Mutation
       mutation={REMOVE_LIGHT}
       update={removeLightFromCache}
-      onCompleted={handleMutationComplete}
-      onError={handleMutationError}
+      onCompleted={handleRemoveComplete}
+      onError={handleRemoveError}
     >
-      {(removeLight, { data, loading, error }) => (
+      {(removeLight, remove) => (
         <OptionsDrawer
           onRename={() => alert("Rename")}
+          removeLightLoading={remove.loading}
           onRemove={() => {
             removeLight({
               variables: {
