@@ -32,7 +32,7 @@ class LightSnackbar extends React.Component {
         <Snackbar
           anchorOrigin={{
             vertical: "bottom",
-            horizontal: "center"
+            horizontal: "left"
           }}
           open={this.state.open}
           autoHideDuration={6000}
@@ -42,7 +42,10 @@ class LightSnackbar extends React.Component {
           }}
           message={
             <span id="message-id">
-              <Typography variant="body1" color={type === "error" ? "error" : "inherit"}>
+              <Typography
+                variant="body1"
+                color={type === "error" ? "error" : "inherit"}
+              >
                 {message}
               </Typography>
             </span>

@@ -3,7 +3,7 @@ import React from "react";
 import { Mutation } from "react-apollo";
 import { SET_LIGHT } from "common/graphqlConstants.js";
 import LightStateContainer from "./LightStateContainer";
-import LightSnackbar from "../../LightSnackbar";
+import LightSnackbar from "common/components/LightSnackbar";
 
 class LightMutationContainer extends React.Component {
   render() {
