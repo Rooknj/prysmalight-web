@@ -1,11 +1,31 @@
 import React from "react";
 import AddLightButton from "./AddLightButton";
 import { Mutation } from "react-apollo";
-import { ADD_LIGHT, GET_LIGHTS } from "common/graphqlConstants.js";
+import {
+  ADD_LIGHT,
+  GET_LIGHTS,
+  GET_DISCOVERED_LIGHTS
+} from "common/graphqlConstants.js";
 
 const addLightToCache = (cache, { data: { addLight } }) => {
   // If no data was returned, do nothing
   if (!addLight) return;
+
+  // Remove the added light from GET_DISCOVERED_LIGHTS
+  const { discoveredLights } = cache.readQuery({
+    query: GET_DISCOVERED_LIGHTS
+  });
+
+  cache.writeQuery({
+    query: GET_DISCOVERED_LIGHTS,
+    data: {
+      discoveredLights: discoveredLights.filter(
+        light => light.id !== addLight.id
+      )
+    }
+  });
+
+  // Remove the added light from GET_LIGHTS
   const { lights } = cache.readQuery({
     query: GET_LIGHTS
   });
