@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 const LIGHT_FIELDS = gql`
   fragment lightFields on Light {
     id
+    name
     connected
     state
     brightness

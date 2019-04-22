@@ -76,6 +76,9 @@ const LightDialog = props => {
         open={drawerOpen}
         onOpen={handleOpenDrawer}
         onClose={handleCloseDrawer}
+        onRename={() => alert("Rename")}
+        onRemove={() => alert("remove")}
+        light={light}
       />
     </ZoomDialog>
   );

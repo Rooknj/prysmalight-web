@@ -4,25 +4,33 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import UpdateIcon from "@material-ui/icons/Update";
-import RebootIcon from "@material-ui/icons/PowerSettingsNew";
+import RenameIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
+import CloseIcon from "@material-ui/icons/Close";
 
 const OptionsDrawer = props => {
-  const { ...other } = props;
+  const { onClose, onRename, onRemove, light, ...other } = props;
+
   return (
-    <SwipeableDrawer anchor="bottom" {...other}>
+    <SwipeableDrawer anchor="bottom" onClose={onClose} {...other}>
       <List>
-        <ListItem button onClick={() => console.log(1)}>
+        <ListItem button onClick={onRename}>
           <ListItemIcon>
-            <UpdateIcon />
+            <RenameIcon />
           </ListItemIcon>
-          <ListItemText primary={"Hello"} />
+          <ListItemText primary={`Rename ${light.name}`} />
         </ListItem>
-        <ListItem button onClick={() => console.log(2)}>
+        <ListItem button onClick={onRemove}>
           <ListItemIcon>
-            <RebootIcon />
+            <DeleteIcon />
           </ListItemIcon>
-          <ListItemText primary={"Hello 2"} />
+          <ListItemText primary={`Remove ${light.name}`} />
+        </ListItem>
+        <ListItem button onClick={onClose}>
+          <ListItemIcon>
+            <CloseIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Cancel"} />
         </ListItem>
       </List>
     </SwipeableDrawer>

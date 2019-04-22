@@ -95,7 +95,7 @@ class LightHeader extends React.Component {
               <CloseIcon />
             </StyledIconButton>
             <Typography variant="h6" color="inherit">
-              {light.id}
+              {light.name}
             </Typography>
           </LeftSide>
           <RightSide>

@@ -86,6 +86,7 @@ class Light extends React.Component {
           <Card onClick={this.handleOpen}>
             <LightHeader
               id={light.id}
+              name={light.name}
               color={light.color}
               connected={light.connected}
               state={light.state}
