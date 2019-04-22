@@ -6,36 +6,43 @@ import DiscoveredLightsView from "./DiscoveredLightsView";
 import ManualView from "./ManualView";
 
 const AddLightDialog = props => {
-  const [view, setView] = React.useState(0);
-
-  const { open, onClose, ...other } = props;
-
-  const handleClose = () => {
-    onClose();
-  };
-
-  const handleSetManual = () => {
-    setView(1);
-  };
-
-  const handleSetDiscover = () => {
-    setView(0);
-  };
+  const {
+    view,
+    onSetManualView,
+    onSetDiscoverView,
+    open,
+    onClose,
+    addLightLoading,
+    ...other
+  } = props;
 
   let DialogBody;
   if (view === 0) {
     DialogBody = (
-      <DiscoveredLightsView onAddManual={handleSetManual} {...other} />
+      <DiscoveredLightsView
+        onAddManual={onSetManualView}
+        addLightLoading={addLightLoading}
+        {...other}
+      />
     );
   } else if (view === 1) {
-    DialogBody = <ManualView onBack={handleSetDiscover} {...other} />;
+    DialogBody = (
+      <ManualView
+        onBack={onSetDiscoverView}
+        addLightLoading={addLightLoading}
+        {...other}
+      />
+    );
   }
 
   return (
     <Dialog
-      onClose={handleClose}
+      onClose={onClose}
+      onExited={onSetDiscoverView}
       aria-labelledby="simple-dialog-title"
       open={open}
+      disableBackdropClick={addLightLoading}
+      disableEscapeKeyDown={addLightLoading}
     >
       <DialogTitle id="simple-dialog-title">Add a Light</DialogTitle>
       {DialogBody}

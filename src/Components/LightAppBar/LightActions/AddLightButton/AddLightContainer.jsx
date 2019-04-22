@@ -26,6 +26,15 @@ const AddLightContainer = props => {
   };
 
   const [open, setOpen] = React.useState(false);
+  const [view, setView] = React.useState(0);
+
+  const handleSetManualView = () => {
+    setView(1);
+  };
+
+  const handleSetDiscoverView = () => {
+    setView(0);
+  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -49,6 +58,9 @@ const AddLightContainer = props => {
           modalOpen={open}
           onOpenModal={handleOpen}
           onCloseModal={handleClose}
+          view={view}
+          onSetManualView={handleSetManualView}
+          onSetDiscoverView={handleSetDiscoverView}
           onAddLight={(lightId, lightName = "") =>
             addLight({
               variables: {
