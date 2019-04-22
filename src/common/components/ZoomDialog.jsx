@@ -7,6 +7,7 @@ function Transition(props) {
   return <Zoom {...props} />;
 }
 
+// TODO: Change this to a more general dialog and pass transitionType as a prop
 const ZoomDialog = props => {
   const { containerRef, children, ...other } = props;
 
