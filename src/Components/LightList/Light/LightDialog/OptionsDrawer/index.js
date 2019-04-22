@@ -1,3 +1,3 @@
-import OptionsDrawer from "./OptionsDrawer";
+import OptionsDrawerContainer from "./OptionsDrawerContainer";
 
-export default OptionsDrawer;
+export default OptionsDrawerContainer;
