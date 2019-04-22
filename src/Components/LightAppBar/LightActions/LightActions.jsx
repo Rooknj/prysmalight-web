@@ -3,12 +3,10 @@ import PropTypes from "prop-types";
 import IconButton from "@material-ui/core/IconButton";
 import AddLightButton from "./AddLightButton";
 import DeleteIcon from "@material-ui/icons/Delete";
-import EditLightsButton from "./EditLightsButton";
 
-const LightActions = ({ onRemoveLight }) => (
+const LightActions = ({ onAddLight, onRemoveLight }) => (
   <React.Fragment>
-    <AddLightButton />
-    <EditLightsButton />
+    <AddLightButton onAddLight={onAddLight} />
     <IconButton color="inherit" onClick={onRemoveLight}>
       <DeleteIcon />
     </IconButton>

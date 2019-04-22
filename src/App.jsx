@@ -8,7 +8,6 @@ import { ThemeProvider } from "styled-components";
 import JssProvider from "react-jss/lib/JssProvider";
 import { create } from "jss";
 import { createGenerateClassName, jssPreset } from "@material-ui/core/styles";
-import ModeContext from "context/ModeContext";
 
 /**
  * This is here in order to put Styled Components' CSS rules above the default Material UI rules
@@ -20,28 +19,18 @@ const jss = create({
   insertionPoint: document.getElementById("jss-insertion-point")
 });
 
-const App = () => {
-  const [editMode, setEditMode] = React.useState(false);
-
-  const toggleEdit = () => setEditMode(!editMode);
-
-  const modeContext = { edit: editMode, toggleEdit };
-
-  return (
-    <JssProvider jss={jss} generateClassName={generateClassName}>
-      <MuiThemeProvider theme={theme}>
-        <ThemeProvider theme={{ ...theme }}>
-          <ModeContext.Provider value={modeContext}>
-            <CssBaseline>
-              <AppBar />
-              <LightTool />
-            </CssBaseline>
-          </ModeContext.Provider>
-        </ThemeProvider>
-      </MuiThemeProvider>
-    </JssProvider>
-  );
-};
+const App = () => (
+  <JssProvider jss={jss} generateClassName={generateClassName}>
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={{ ...theme }}>
+        <CssBaseline>
+          <AppBar />
+          <LightTool />
+        </CssBaseline>
+      </ThemeProvider>
+    </MuiThemeProvider>
+  </JssProvider>
+);
 
 export default App;
 
