@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 
 const ManualView = props => {
-  const { onAddLight, onBack, loading } = props;
+  const { onAddLight, onBack, addLightLoading } = props;
 
   const [lightId, setLightId] = React.useState("");
 
@@ -42,13 +42,18 @@ const ManualView = props => {
           value={lightId}
           onChange={handleChange}
           onKeyPress={handleKeyPress}
+          disabled={addLightLoading}
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onBack} color="primary">
+        <Button onClick={onBack} color="primary" disabled={addLightLoading}>
           Back
         </Button>
-        <Button onClick={handleSubmit} color="primary" disabled={loading}>
+        <Button
+          onClick={handleSubmit}
+          color="primary"
+          disabled={addLightLoading}
+        >
           Add Light
         </Button>
       </DialogActions>

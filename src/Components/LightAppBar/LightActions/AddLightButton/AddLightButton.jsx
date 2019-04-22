@@ -5,28 +5,14 @@ import AddIcon from "@material-ui/icons/Add";
 import AddLightDialog from "./AddLightDialog";
 
 const AddLightButton = props => {
-  const { onAddLight, ...other } = props;
-
-  const [open, setOpen] = React.useState(false);
-
-  function handleClickOpen() {
-    setOpen(true);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const { modalOpen, onOpenModal, onCloseModal, ...other } = props;
 
   return (
     <React.Fragment>
-      <IconButton color="inherit" onClick={handleClickOpen}>
+      <IconButton color="inherit" onClick={onOpenModal}>
         <AddIcon />
       </IconButton>
-      <AddLightDialog
-        open={open}
-        onClose={handleClose}
-        onAddLight={onAddLight}
-      />
+      <AddLightDialog open={modalOpen} onClose={onCloseModal} {...other} />
     </React.Fragment>
   );
 };

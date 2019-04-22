@@ -8,16 +8,10 @@ import ManualView from "./ManualView";
 const AddLightDialog = props => {
   const [view, setView] = React.useState(0);
 
-  const { onClose, onAddLight, ...other } = props;
+  const { open, onClose, ...other } = props;
 
   const handleClose = () => {
-    setView(0);
     onClose();
-  };
-
-  const handleAddLight = lightId => {
-    onAddLight(lightId);
-    handleClose();
   };
 
   const handleSetManual = () => {
@@ -31,22 +25,17 @@ const AddLightDialog = props => {
   let DialogBody;
   if (view === 0) {
     DialogBody = (
-      <DiscoveredLightsView
-        onSetManual={handleSetManual}
-        onAddLight={handleAddLight}
-      />
+      <DiscoveredLightsView onAddManual={handleSetManual} {...other} />
     );
   } else if (view === 1) {
-    DialogBody = (
-      <ManualView onBack={handleSetDiscover} onAddLight={handleAddLight} />
-    );
+    DialogBody = <ManualView onBack={handleSetDiscover} {...other} />;
   }
 
   return (
     <Dialog
       onClose={handleClose}
       aria-labelledby="simple-dialog-title"
-      {...other}
+      open={open}
     >
       <DialogTitle id="simple-dialog-title">Add a Light</DialogTitle>
       {DialogBody}

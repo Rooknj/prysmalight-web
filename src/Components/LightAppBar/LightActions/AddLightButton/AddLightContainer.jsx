@@ -25,23 +25,38 @@ const AddLightContainer = props => {
     console.error(error);
   };
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Mutation
       mutation={ADD_LIGHT}
       update={addLightToCache}
       onError={handleMutationError}
+      onCompleted={handleClose}
     >
-      {(addLight, { data, loading, error }) => (
+      {(addLight, { loading, error }) => (
         <AddLightButton
-          onAddLight={(lightId, lightName = "") => {
-            console.log(lightId, lightName);
+          addLightLoading={loading}
+          addLightError={error}
+          modalOpen={open}
+          onOpenModal={handleOpen}
+          onCloseModal={handleClose}
+          onAddLight={(lightId, lightName = "") =>
             addLight({
               variables: {
                 lightId,
                 lightName
               }
-            });
-          }}
+            })
+          }
         />
       )}
     </Mutation>
