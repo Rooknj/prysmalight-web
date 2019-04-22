@@ -55,6 +55,11 @@ const defaultProps = {
 };
 
 class Light extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+
   state = {
     open: false
   };
@@ -74,9 +79,10 @@ class Light extends React.Component {
         <LightDialog
           open={this.state.open}
           onClose={this.handleClose}
+          containerRef={this.myRef.current}
           {...this.props}
         />
-        <StyledCardWrapper>
+        <StyledCardWrapper ref={this.myRef}>
           <Card onClick={this.handleOpen}>
             <LightHeader
               id={light.id}

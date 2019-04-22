@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/ArrowBack";
+import MoreIcon from "@material-ui/icons/MoreHoriz";
 import Switch from "@material-ui/core/Switch";
 import Slider from "common/components/SmoothSlider";
 
@@ -16,6 +17,11 @@ const StyledToolbar = styled(Toolbar)`
 `;
 
 const LeftSide = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const RightSide = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -86,12 +92,17 @@ class LightHeader extends React.Component {
               {light.id}
             </Typography>
           </LeftSide>
-          <Switch
-            checked={light.state === "ON" ? true : false}
-            onChange={onStateChange}
-            disabled={light.connected !== 2}
-            color="primary"
-          />
+          <RightSide>
+            <IconButton color="inherit" onClick={() => console.log("More")}>
+              <MoreIcon />
+            </IconButton>
+            <Switch
+              checked={light.state === "ON" ? true : false}
+              onChange={onStateChange}
+              disabled={light.connected !== 2}
+              color="primary"
+            />
+          </RightSide>
         </StyledToolbar>
         <StyledSlider
           value={light.brightness}

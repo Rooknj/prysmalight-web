@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Dialog from "@material-ui/core/Dialog";
-import Slide from "@material-ui/core/Slide";
 import LightControls from "./LightControls";
 import LightHeader from "./DialogHeader";
+import ZoomDialog from "common/components/ZoomDialog";
 
 const propTypes = {
   light: PropTypes.shape({
@@ -42,37 +41,33 @@ const defaultProps = {
   }
 };
 
-function Transition(props) {
-  return <Slide direction="up" {...props} />;
-}
+const LightDialog = props => {
+  const {
+    onClose,
+    open,
+    light,
+    onStateChange,
+    onBrightnessChange,
+    containerRef
+  } = props;
 
-class LightDialog extends React.Component {
-  render() {
-    const {
-      onClose,
-      open,
-      light,
-      onStateChange,
-      onBrightnessChange
-    } = this.props;
-    return (
-      <Dialog
-        fullScreen
-        open={open}
+  return (
+    <ZoomDialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+      containerRef={containerRef}
+    >
+      <LightHeader
+        light={light}
         onClose={onClose}
-        TransitionComponent={Transition}
-      >
-        <LightHeader
-          light={light}
-          onClose={onClose}
-          onStateChange={onStateChange}
-          onBrightnessChange={onBrightnessChange}
-        />
-        <LightControls {...this.props} />
-      </Dialog>
-    );
-  }
-}
+        onStateChange={onStateChange}
+        onBrightnessChange={onBrightnessChange}
+      />
+      <LightControls {...props} />
+    </ZoomDialog>
+  );
+};
 
 LightDialog.propTypes = propTypes;
 LightDialog.defaultProps = defaultProps;
