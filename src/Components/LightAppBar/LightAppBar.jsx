@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import LightActionsContainer from "./LightActions/LightActionsContainer";
+import LightActions from "./LightActions/LightActions";
 import LightDrawer from "./LightDrawer";
 
 const StyledToolbar = styled(Toolbar)`
@@ -35,7 +35,7 @@ const LightAppBar = ({ open, onOpen, onClose }) => (
             Prysmalight
           </Typography>
         </LeftDiv>
-        <LightActionsContainer />
+        <LightActions />
       </StyledToolbar>
     </AppBar>
   </React.Fragment>

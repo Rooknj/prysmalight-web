@@ -27,10 +27,12 @@ const OptionsDrawerContainer = props => {
   const { light } = props;
 
   const handleRemoveComplete = data => {
-    console.log(data);
+    // TODO: Figure out how to show a snackbar
+    //console.log(data);
   };
 
   const handleRemoveError = error => {
+    // TODO: Figure out what to do on error
     console.log(error);
   };
 

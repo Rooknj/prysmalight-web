@@ -1,24 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
-import IconButton from "@material-ui/core/IconButton";
+//import PropTypes from "prop-types";
 import AddLightButton from "./AddLightButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 
-const LightActions = ({ onAddLight, onRemoveLight }) => (
+const LightActions = props => (
   <React.Fragment>
-    <AddLightButton onAddLight={onAddLight} />
-    <IconButton color="inherit" onClick={onRemoveLight}>
-      <DeleteIcon />
-    </IconButton>
+    <AddLightButton />
     {/* <IconButton color="inherit" onClick={() => console.log("HAHAHA EDIT")}>
       <EditIcon />
     </IconButton> */}
   </React.Fragment>
 );
 
-LightActions.propTypes = {
-  onAddLight: PropTypes.func.isRequired,
-  onRemoveLight: PropTypes.func.isRequired
-};
+LightActions.propTypes = {};
 
 export default LightActions;
