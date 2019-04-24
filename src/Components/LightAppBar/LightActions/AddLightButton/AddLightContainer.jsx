@@ -92,14 +92,15 @@ const AddLightContainer = props => {
           onSetManualView={handleSetManualView}
           onSetDiscoverView={handleSetDiscoverView}
           lightAdded={lightAdded}
-          onAddLight={(lightId, lightName = "") =>
+          onAddLight={(lightId, lightName = "") => {
+            setAddLightError(null);
             addLight({
               variables: {
                 lightId,
                 lightName
               }
-            })
-          }
+            });
+          }}
         />
       )}
     </Mutation>
