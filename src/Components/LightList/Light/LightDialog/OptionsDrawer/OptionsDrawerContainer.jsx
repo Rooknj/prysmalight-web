@@ -24,7 +24,7 @@ const removeLightFromCache = (cache, { data: { removeLight } }) => {
 };
 
 const OptionsDrawerContainer = props => {
-  const { light } = props;
+  const { light, onRenameSelected, ...other } = props;
 
   const handleRemoveComplete = data => {
     // TODO: Figure out how to show a snackbar
@@ -45,8 +45,9 @@ const OptionsDrawerContainer = props => {
     >
       {(removeLight, remove) => (
         <OptionsDrawer
-          onRename={() => alert("Rename")}
+          onRename={onRenameSelected}
           removeLightLoading={remove.loading}
+          light={light}
           onRemove={() => {
             removeLight({
               variables: {
@@ -54,7 +55,7 @@ const OptionsDrawerContainer = props => {
               }
             });
           }}
-          {...props}
+          {...other}
         />
       )}
     </Mutation>

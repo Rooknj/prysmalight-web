@@ -22,7 +22,7 @@ class LightMutationContainer extends React.Component {
               />
               {error && (
                 <LightSnackbar
-                  message={`Error changing ${this.props.light.id}`}
+                  message={`Error changing ${this.props.light.name}`}
                   type="error"
                 />
               )}

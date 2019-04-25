@@ -4,6 +4,9 @@ import LightControls from "./LightControls";
 import LightHeader from "./DialogHeader";
 import ZoomDialog from "common/components/ZoomDialog";
 import OptionsDrawer from "./OptionsDrawer";
+import { Mutation } from "react-apollo";
+import { SET_LIGHT } from "common/graphqlConstants.js";
+import RenameLightDialog from "./RenameLightDialog";
 
 const propTypes = {
   light: PropTypes.shape({
@@ -53,9 +56,21 @@ const LightDialog = props => {
   } = props;
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [renameOpen, setRenameOpen] = React.useState(false);
+  const [renameError, setRenameError] = React.useState(null);
 
   const handleOpenDrawer = () => setDrawerOpen(true);
   const handleCloseDrawer = () => setDrawerOpen(false);
+  const handleOpenRename = () => {
+    setRenameOpen(true);
+    setRenameError(null);
+  };
+  const handleCloseRename = () => setRenameOpen(false);
+
+  const handleRenameSelected = () => {
+    handleCloseDrawer();
+    handleOpenRename();
+  };
 
   return (
     <ZoomDialog
@@ -76,8 +91,34 @@ const LightDialog = props => {
         open={drawerOpen}
         onOpen={handleOpenDrawer}
         onClose={handleCloseDrawer}
+        onRenameSelected={handleRenameSelected}
         light={light}
       />
+      <Mutation
+        mutation={SET_LIGHT}
+        onCompleted={handleCloseRename}
+        onError={setRenameError}
+      >
+        {(setLight, { loading }) => {
+          return (
+            <RenameLightDialog
+              open={renameOpen}
+              onClose={handleCloseRename}
+              loading={loading}
+              error={renameError}
+              onRenameLight={lightName =>
+                setLight({
+                  variables: {
+                    lightId: light.id,
+                    lightData: { name: lightName }
+                  }
+                })
+              }
+              light={light}
+            />
+          );
+        }}
+      </Mutation>
     </ZoomDialog>
   );
 };

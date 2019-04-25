@@ -74,6 +74,7 @@ const defaultProps = {
   }
 };
 
+// TODO: Make the light header text overflow be ... instead of dropping down to the next line
 class LightHeader extends React.Component {
   render() {
     const {
