@@ -20,6 +20,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  name: "test",
   color: {
     r: 0,
     g: 0,

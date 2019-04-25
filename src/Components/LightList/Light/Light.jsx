@@ -43,6 +43,7 @@ const propTypes = {
 const defaultProps = {
   light: {
     id: "",
+    name: "",
     connected: 0,
     state: "OFF",
     brightness: 0,

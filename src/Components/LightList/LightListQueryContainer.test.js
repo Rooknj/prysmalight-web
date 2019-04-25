@@ -13,6 +13,7 @@ jest.mock("./LightListSubscriptionContainer");
 const MOCK_LIGHT = {
   __typename: "Light",
   id: "LightListQueryContainerTest",
+  name: "LightListQueryContainerTest",
   state: "ON",
   connected: 2,
   brightness: 76,
