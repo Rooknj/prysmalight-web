@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Slider from "./SmoothSlider";
+import Slider from "common/components/SmoothSlider";
 import styled from "styled-components";
 import BrightnessIcon from "@material-ui/icons/BrightnessLow";
 

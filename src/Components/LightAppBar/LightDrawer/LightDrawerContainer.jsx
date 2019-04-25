@@ -2,7 +2,7 @@ import React from "react";
 import LightDrawer from "./LightDrawer";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
-import LightSnackbar from "../../LightSnackbar";
+import LightSnackbar from "common/components/LightSnackbar";
 
 const UPDATE_HUB = gql`
   mutation updateHub {
@@ -44,15 +44,9 @@ class LightDrawerContainer extends React.Component {
                   />
                 )}
                 {update.data && (
-                  <LightSnackbar
-                    message={`Prysmalight Updated Successfully`}
-                  />
+                  <LightSnackbar message={`Prysmalight Updated Successfully`} />
                 )}
-                {reboot.data && (
-                  <LightSnackbar
-                    message={`Reboot Initiated`}
-                  />
-                )}
+                {reboot.data && <LightSnackbar message={`Reboot Initiated`} />}
               </React.Fragment>
             )}
           </Mutation>

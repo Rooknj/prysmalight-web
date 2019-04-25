@@ -1,6 +1,6 @@
 {
   "name": "prysmalight-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "@jaames/iro": "^4.3.3",

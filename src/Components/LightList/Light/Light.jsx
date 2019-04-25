@@ -43,6 +43,7 @@ const propTypes = {
 const defaultProps = {
   light: {
     id: "",
+    name: "",
     connected: 0,
     state: "OFF",
     brightness: 0,
@@ -55,6 +56,11 @@ const defaultProps = {
 };
 
 class Light extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+
   state = {
     open: false
   };
@@ -74,12 +80,14 @@ class Light extends React.Component {
         <LightDialog
           open={this.state.open}
           onClose={this.handleClose}
+          containerRef={this.myRef.current}
           {...this.props}
         />
-        <StyledCardWrapper>
+        <StyledCardWrapper ref={this.myRef}>
           <Card onClick={this.handleOpen}>
             <LightHeader
               id={light.id}
+              name={light.name}
               color={light.color}
               connected={light.connected}
               state={light.state}

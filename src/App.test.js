@@ -8,12 +8,9 @@ jest.mock("./Components/LightTool", () => () => (
   <div id="MockLightTool">Mocked Light Tool</div>
 ));
 
-jest.mock(
-  "./Components/LightAppBar/LightActions/LightActionsContainer",
-  () => () => (
-    <div id="LightActionsContainer">Mocked Light Actions Container</div>
-  )
-);
+jest.mock("./Components/LightAppBar/LightActions/LightActions", () => () => (
+  <div id="LightActionsContainer">Mocked Light Actions Container</div>
+));
 
 jest.mock("./Components/LightAppBar/LightDrawer", () => () => (
   <div id="LightDrawer">Mocked Light Drawer</div>

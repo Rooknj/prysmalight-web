@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Dialog from "@material-ui/core/Dialog";
-import Slide from "@material-ui/core/Slide";
 import LightControls from "./LightControls";
 import LightHeader from "./DialogHeader";
+import ZoomDialog from "common/components/ZoomDialog";
+import OptionsDrawer from "./OptionsDrawer";
+import { Mutation } from "react-apollo";
+import { SET_LIGHT } from "common/graphqlConstants.js";
+import RenameLightDialog from "./RenameLightDialog";
 
 const propTypes = {
   light: PropTypes.shape({
@@ -42,37 +45,83 @@ const defaultProps = {
   }
 };
 
-function Transition(props) {
-  return <Slide direction="up" {...props} />;
-}
+const LightDialog = props => {
+  const {
+    onClose,
+    open,
+    light,
+    onStateChange,
+    onBrightnessChange,
+    containerRef
+  } = props;
 
-class LightDialog extends React.Component {
-  render() {
-    const {
-      onClose,
-      open,
-      light,
-      onStateChange,
-      onBrightnessChange
-    } = this.props;
-    return (
-      <Dialog
-        fullScreen
-        open={open}
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [renameOpen, setRenameOpen] = React.useState(false);
+  const [renameError, setRenameError] = React.useState(null);
+
+  const handleOpenDrawer = () => setDrawerOpen(true);
+  const handleCloseDrawer = () => setDrawerOpen(false);
+  const handleOpenRename = () => {
+    setRenameOpen(true);
+    setRenameError(null);
+  };
+  const handleCloseRename = () => setRenameOpen(false);
+
+  const handleRenameSelected = () => {
+    handleCloseDrawer();
+    handleOpenRename();
+  };
+
+  return (
+    <ZoomDialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+      containerRef={containerRef}
+    >
+      <LightHeader
+        light={light}
         onClose={onClose}
-        TransitionComponent={Transition}
+        onStateChange={onStateChange}
+        onBrightnessChange={onBrightnessChange}
+        onMore={handleOpenDrawer}
+      />
+      <LightControls {...props} />
+      <OptionsDrawer
+        open={drawerOpen}
+        onOpen={handleOpenDrawer}
+        onClose={handleCloseDrawer}
+        onRenameSelected={handleRenameSelected}
+        light={light}
+      />
+      <Mutation
+        mutation={SET_LIGHT}
+        onCompleted={handleCloseRename}
+        onError={setRenameError}
       >
-        <LightHeader
-          light={light}
-          onClose={onClose}
-          onStateChange={onStateChange}
-          onBrightnessChange={onBrightnessChange}
-        />
-        <LightControls {...this.props} />
-      </Dialog>
-    );
-  }
-}
+        {(setLight, { loading }) => {
+          return (
+            <RenameLightDialog
+              open={renameOpen}
+              onClose={handleCloseRename}
+              loading={loading}
+              error={renameError}
+              onRenameLight={lightName =>
+                setLight({
+                  variables: {
+                    lightId: light.id,
+                    lightData: { name: lightName }
+                  }
+                })
+              }
+              light={light}
+            />
+          );
+        }}
+      </Mutation>
+    </ZoomDialog>
+  );
+};
 
 LightDialog.propTypes = propTypes;
 LightDialog.defaultProps = defaultProps;

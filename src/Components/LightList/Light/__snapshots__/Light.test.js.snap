@@ -5,7 +5,7 @@ Array [
   "",
   <styled.div>
     <div
-      className="sc-kgoBCf hBThxx"
+      className="sc-kGXeez dpPLGD"
     >
       <div
         className="MuiPaper-root-18 MuiPaper-elevation1-21 MuiPaper-rounded-19 MuiCard-root-17"
@@ -122,6 +122,7 @@ Array [
 exports[`matches shallow snapshot 1`] = `
 <Fragment>
   <LightDialog
+    containerRef={null}
     light={
       Object {
         "brightness": 0,
@@ -132,6 +133,7 @@ exports[`matches shallow snapshot 1`] = `
         },
         "connected": 0,
         "id": "",
+        "name": "",
         "state": "OFF",
       }
     }
@@ -157,6 +159,7 @@ exports[`matches shallow snapshot 1`] = `
         }
         connected={0}
         id=""
+        name=""
         onChange={[Function]}
         state="OFF"
         waiting={false}

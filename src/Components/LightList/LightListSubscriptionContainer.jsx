@@ -4,7 +4,7 @@ import {
   LIGHTS_CHANGED,
   LIGHT_ADDED,
   LIGHT_REMOVED
-} from "../graphqlConstants";
+} from "common/graphqlConstants.js";
 import LightList from "./LightList";
 
 const propTypes = {

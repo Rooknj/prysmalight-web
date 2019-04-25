@@ -7,7 +7,7 @@ import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const propTypes = {
-  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   color: PropTypes.shape({
     r: PropTypes.number.isRequired,
     g: PropTypes.number.isRequired,
@@ -20,6 +20,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  name: "test",
   color: {
     r: 0,
     g: 0,
@@ -35,11 +36,11 @@ class LightHeader extends React.Component {
   stopPropagation = e => e.stopPropagation();
 
   render() {
-    const { id, color, connected, state, waiting, onChange } = this.props;
+    const { name, color, connected, state, waiting, onChange } = this.props;
     return (
       <Grid container alignItems="center">
         <Grid item xs={7}>
-          <LightStatus id={id} color={color} connected={connected} />
+          <LightStatus name={name} color={color} connected={connected} />
         </Grid>
         <Grid item xs={5}>
           <Grid container justify="flex-end">

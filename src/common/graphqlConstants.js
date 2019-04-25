@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 const LIGHT_FIELDS = gql`
   fragment lightFields on Light {
     id
+    name
     connected
     state
     brightness
@@ -60,8 +61,8 @@ export const SET_LIGHT = gql`
 `;
 
 export const ADD_LIGHT = gql`
-  mutation addLight($lightId: String!) {
-    addLight(lightId: $lightId) {
+  mutation addLight($lightId: String!, $lightName: String) {
+    addLight(lightId: $lightId, lightName: $lightName) {
       ...lightFields
     }
   }
@@ -71,5 +72,21 @@ export const ADD_LIGHT = gql`
 export const REMOVE_LIGHT = gql`
   mutation removeLight($lightId: String!) {
     removeLight(lightId: $lightId)
+  }
+`;
+
+export const GET_DISCOVERED_LIGHTS = gql`
+  query getDiscoveredLights {
+    discoveredLights {
+      id
+      ipAddress
+      macAddress
+      numLeds
+      udpPort
+      version
+      hardware
+      colorOrder
+      stripType
+    }
   }
 `;

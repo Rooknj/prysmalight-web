@@ -5,8 +5,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/ArrowBack";
+import MoreIcon from "@material-ui/icons/MoreHoriz";
 import Switch from "@material-ui/core/Switch";
-import Slider from "../SmoothSlider";
+import Slider from "common/components/SmoothSlider";
 
 import styled from "styled-components";
 
@@ -16,6 +17,11 @@ const StyledToolbar = styled(Toolbar)`
 `;
 
 const LeftSide = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const RightSide = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -68,9 +74,16 @@ const defaultProps = {
   }
 };
 
+// TODO: Make the light header text overflow be ... instead of dropping down to the next line
 class LightHeader extends React.Component {
   render() {
-    const { onClose, light, onStateChange, onBrightnessChange } = this.props;
+    const {
+      onClose,
+      light,
+      onStateChange,
+      onBrightnessChange,
+      onMore
+    } = this.props;
     return (
       <AppBar position="relative" color="secondary">
         <StyledToolbar variant={"regular"}>
@@ -83,15 +96,20 @@ class LightHeader extends React.Component {
               <CloseIcon />
             </StyledIconButton>
             <Typography variant="h6" color="inherit">
-              {light.id}
+              {light.name}
             </Typography>
           </LeftSide>
-          <Switch
-            checked={light.state === "ON" ? true : false}
-            onChange={onStateChange}
-            disabled={light.connected !== 2}
-            color="primary"
-          />
+          <RightSide>
+            <IconButton color="inherit" onClick={onMore}>
+              <MoreIcon />
+            </IconButton>
+            <Switch
+              checked={light.state === "ON" ? true : false}
+              onChange={onStateChange}
+              disabled={light.connected !== 2}
+              color="primary"
+            />
+          </RightSide>
         </StyledToolbar>
         <StyledSlider
           value={light.brightness}

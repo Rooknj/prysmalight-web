@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Mutation } from "react-apollo";
-import { SET_LIGHT } from "../../graphqlConstants";
+import { SET_LIGHT } from "common/graphqlConstants.js";
 import LightStateContainer from "./LightStateContainer";
-import LightSnackbar from "../../LightSnackbar";
+import LightSnackbar from "common/components/LightSnackbar";
 
 class LightMutationContainer extends React.Component {
   render() {
@@ -22,7 +22,7 @@ class LightMutationContainer extends React.Component {
               />
               {error && (
                 <LightSnackbar
-                  message={`Error changing ${this.props.light.id}`}
+                  message={`Error changing ${this.props.light.name}`}
                   type="error"
                 />
               )}

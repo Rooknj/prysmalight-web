@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { MockedProvider } from "react-apollo/test-utils";
-import { GET_LIGHTS } from "../graphqlConstants";
+import { GET_LIGHTS } from "common/graphqlConstants.js";
 import wait from "waait";
 import LightListQueryContainer, { Loading } from "./LightListQueryContainer";
 import ErrorPage from "./ErrorPage";
@@ -13,6 +13,7 @@ jest.mock("./LightListSubscriptionContainer");
 const MOCK_LIGHT = {
   __typename: "Light",
   id: "LightListQueryContainerTest",
+  name: "LightListQueryContainerTest",
   state: "ON",
   connected: 2,
   brightness: 76,

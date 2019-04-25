@@ -11,7 +11,7 @@ const StyledAvatar = styled(Avatar)`
 `;
 
 const propTypes = {
-  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   color: PropTypes.shape({
     r: PropTypes.number.isRequired,
     g: PropTypes.number.isRequired,
@@ -30,7 +30,7 @@ const defaultProps = {
 const LightStatus = props => {
   return (
     <CardHeader
-      title={props.id}
+      title={props.name}
       subheader={props.connected === 2 ? "Connected" : "Disonnected"}
       avatar={
         <StyledAvatar aria-label="Light">
